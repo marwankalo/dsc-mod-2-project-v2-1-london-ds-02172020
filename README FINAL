@@ -1,5 +1,50 @@
 Hello, welcome to our project!
 
-Our notebooks for this project can be found in Anila.pynb and Student.pynb
+Our notebooks for this project can be found in Anila.ipynb and Student.ipynb
 
-We started by cleaning the data and performing an EDA - Student.
+We started by cleaning the data and performing an EDA - Student.ipynb and Anila.ipynb first sections
+  
+  We discarded nulls, and any symbols within the columns that were not appropriate
+  We converted floats to integers for more fluid transformations where appropriate
+  We added dummies to the categorical data to be able to run regressions further down the line
+
+We then began to analyse and describe the data - second section in notebooks
+  
+  We looked at the price distribution of houses in King County
+  We also looked at the price distribution by geography within the county with an interactive heatmap
+
+We then took a closer look at the feature variables and how they are distributed - third section
+
+  In this section we also assessed the multicollinearity between the variables and experimented with looking at homo/heteroscedacity
+
+Now we move on to build the first baseline model
+
+  We construct the train/test split that we will use throughout the modelling
+  We create a model using all the features from our dataset
+  
+Now we refine the model
+
+  First refinement: we drop features with insignificant p-values (more than 0.05)
+    Test model
+    
+  Second refinement: we drop features that have a variance inflation factor of greater than 10 (display a lot of multicollinearity)
+    Test model
+    
+Now we build another, bottom-up model:
+
+  We select features known to predict house prices with a strong degree of accuracy and taking into account 
+  multicollinearity and p-values calculated above.
+  
+  We also check the normality and heteroscedastic assumptions
+  
+Now we build another model that drops outliers in house price
+  
+  We dropped prices past the 0.99 quintile however this negatively affected our r-squared in the end and we decided to use
+  the full data-set
+  
+  We checked for normality in the outlier dropped model and this showed an improvement in normality however
+  the score took too large a hit to continue with
+  
+We finally ran our original, refined model on our test data and our score showed no overfitting!
+  
+  We described three of our coefficients at the end of the student.ipynb notebook
